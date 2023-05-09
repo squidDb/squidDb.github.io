@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--Mobile View Compatibility-->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" type="x-icon" href="ASSETS/icon.png">
+        <title>CARPS RestoBar</title>
+
+        <!--Button CSS--> <!--BACK-UP CSS-->
+        <link rel="stylesheet" type="text/css" href="WAD-group-buttons(MAIN).css">
+        
+        <!--Panel CSS--> <!--BACK-UP CSS-->
+        <link rel="stylesheet" type="text/css" href="WAD-group-tabs(MAIN).css">
+
+        <!--Icons Stylesheets-->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        
+        <!--Responsive JS-->
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+        <!--In File CSS-->
+        <style>
+            /*BTNS CSS*/
+            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+            @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+            * {
+                padding: 0;
+                margin: 0;
+                text-decoration: none;
+                list-style: none;
+                box-sizing: border-box;
+            }
+
+            body {
+                background: #eeeeee;
+                font-family: "Poppins";  
+            }
+
+            .menuBTNCont {
+                z-index: 2;
+            }
+
+            .menuNavTop {
+                position: fixed;
+                background: black;
+                height: 110px;
+                width: 100%;
+                
+                }
+
+                .menuNavTop .menuRootImg {
+                    float: left;
+                    margin: 5px 0;
+                    line-height: 100px;
+                    padding: 0 50px;
+                    height: 100px;
+                    width: 0;
+                    z-index: 1;
+                }
+
+                /*ANIMATION logo*/
+                .menuNavTop .menuRootImg2 {
+                    position: absolute;
+                    left:0;
+
+                    float: left;
+                    margin: 5px 0;
+                    line-height: 100px;
+                    padding: 0 50px;
+                    height: 100px;
+                    width: 200px;
+                    z-index: 1;
+
+                    animation-name: imageCycle;
+                    animation-duration: 8s;
+                    animation-iteration-count: infinite;
+                    animation-timing-function: ease;
+                }
+
+                @keyframes imageCycle {
+                    0% {
+                        opacity: 100%;
+                    }
+                    25% {
+                        opacity: 0%;
+                    }
+                    50% {
+                        opacity: 100%;
+                    }
+                    75% {
+                        opacity: 0%;
+                    }
+                    100% {
+                        opacity: 100%;
+                    }
+                }
+
+                .linkCss {
+                    color: lightblue;
+                }
+                
+                /* buttons */
+                .menuNavTop ul {
+                    float: right;
+                    
+                }
+
+                .menuNavTop ul li {
+                    display: inline-block;
+                    line-height: 107px;
+                    
+                }
+
+                .menuNavTop ul li a {
+                    color:#a70960;
+                    font-size: 25px;
+                    padding: 7px 13px;
+                    border-radius: 3px;
+                    text-transform: uppercase;
+                }
+
+                /*.menuNavTop ul li a i {
+                    
+                }
+
+                .menuNavTop ul li a span {
+
+                }*/
+
+                .menuNavTop .checkbtn {
+                    font-size: 50px;
+                    color: rgb(255, 255, 255);
+                    float: right;
+                    line-height: 80px;
+                    cursor:pointer;
+                    display: none;
+                    margin: 0;
+
+                    border-left: 1px solid #dddddd;
+                    
+                    padding: 5px;
+                    padding-left: 30px;
+                    height: 90px;
+                    width: 100px;
+                }
+
+                #check {
+                    display: none;
+                }
+
+                /*ANIMATION BTNS*/
+
+                #row:hover {
+                    background-color: #dddddd;
+                    transition: all .5s ease;
+                }
+
+                .menuNavTop .checkbtn:hover {
+                    background: #c9c9c9;
+                    transition: all .5s ease;
+                }
+
+                /*RESPONSIVE*/
+                @media (max-width: 952px) {
+                    .menuNavTop .menuRootImg {
+                        padding: 0 10px;
+                        height: 100px;
+                        width: 0;
+                    }
+
+                    .menuNavTop ul li a {
+                        font-size: 16px;
+                    }
+
+                    .menuNavTop .menuRootImg2 {
+                        left: -40px;
+                        height: 100px;
+                        width: 200px;
+
+                    }
+                }
+
+                @media (max-width: 858px) {
+                    .menuNavTop {
+                        height: 90px;
+                    }
+                    
+                    .menuNavTop .checkbtn {
+                        display: block;
+                    }
+
+                    .menuNavTop .menuRootImg {
+                        padding: 0 10px;
+                        height: 0;
+                        width: 100px;
+                    }
+
+                    .menuNavTop .menuRootImg2 {
+                        left: -30px;
+                        bottom: -5px;
+                        height: 90px;
+                        width: 190px;
+
+                    }
+
+                    .menuNavTop ul {
+                        position: fixed;
+                        width: 100%;
+                        height: 100vh;
+                        background-color:#88084e;
+                        top: 90px;
+                        right:-106%;
+                        text-align: left;
+                        transition: all .5s ease;
+                    }
+
+                    .menuNavTop ul li {
+                        display: block;
+                        margin: 0 0 0px 0;
+                        line-height: 30px;
+                        padding-top: 20px;
+                        padding-bottom: 50px;
+                        padding-left: 30px;
+                    }
+
+                    .menuNavTop ul li a {
+                        font-size: 20px;
+                        color: white;
+                        
+                    }
+
+                    #row {
+                        height: 50px;
+                    }
+
+
+                    #check:checked ~ .pageMenu ul {
+                        right: -35%;
+
+                    }
+                }
+            /*TABS CSS*/
+            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+            @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+            * {
+                padding: 0;
+                margin: 0;
+                text-decoration: none;
+                list-style: none;
+                box-sizing: border-box;
+            }
+
+            span.nav-item {
+                color: white;
+            }
+
+            .Tabs {
+                position: relative;
+                padding-top: 100px;
+                z-index: -2;
+            }
+
+            .pageTabs {
+                position: absolute;
+                background: #eeeeee;
+                width: 100%;
+                z-index: 0;
+
+                font-family: "Playfair Display";
+            }   
+                
+
+                .formatTab {
+                    display: grid;
+                    place-items: center;
+                    width: 100%;
+                }
+
+                .formatTab2 {
+                    display:table;
+                    margin-left: 110px;
+                    padding-top: 20px;
+                    width: auto;
+                    min-width: 1320px;
+                }
+
+                    .contentHolder {
+                        position: relative;
+                        height: auto;
+                        
+                        background: #c9c9c9;
+
+                        font-family: "Playfair Display";
+
+                        padding: 20px 30px 20px 30px;
+
+                        border-top: 2px solid rgb(59, 59, 59);
+                    }
+
+                    .contentHolder2 {
+                        position: relative;
+                        height: 500px;
+                        width: 420px;
+                        float: left;
+
+                        background: linear-gradient(#88084e, #460328, #4f0558);
+
+                        font-family: "Playfair Display";
+
+                        margin: 10px;
+                        padding: 20px 30px 20px 30px;
+                        cursor: help;
+
+                        border-top: 2px solid rgb(59, 59, 59);
+                        border-radius: 10px 10px 10px 10px;
+                        box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+
+                        z-index: 3;
+                    }
+
+                    .contentHolder2:hover {
+                        transition: all .5s ease;
+                        transform: scale(1.05);
+                    }
+
+                    .mapHolder {
+                        width: 1525px;
+                        height: 500px;
+                        border: 0;
+                    }
+
+                    .contentHead {
+                        position: relative;
+                        width: 100%;
+                        height: auto;
+                        border-bottom: 2px solid #eeeeee;
+                        
+                        padding-bottom: 5px;
+                        overflow: hidden;
+                    }
+
+                    .contentHead .logoHolder {
+                        float: left;
+                        display: table;
+                        margin-top: 130px;
+                        margin-left: 15px;
+                        margin-bottom: 20px;
+                        width: 100%;
+                    }
+
+                    .contentHead .logoHolder a .logoSM {
+                        position: relative;
+                        height: 80px;
+                        width: 80px;
+
+                        margin: 2px
+                    }
+
+                    @media (max-width:852px) {
+                        .contentHead .logoHolder {
+                            float: left;
+                            display: table;
+                            margin-top: 50px;
+                            margin-left: 40px;
+                            margin-bottom: 20px;
+                            width: 100%;
+                        }
+
+                        .contentHead .logoHolder a .logoSM {
+                            position: relative;
+                            height: 50px;
+                            width: 50px;
+
+                            margin: 2px
+                        }
+                    }
+
+                        .contentHead img{
+                            position: relative;
+                            width: 100%;
+                            height: 100%;
+                            float: left;
+                            opacity: 1;
+                            animation: transIN 1.5s linear;
+                        }
+
+                        .contentHead #imgPort{
+                            position: relative;
+                            width: 33.33%;
+                            height: 33.33%;
+                            float: left;
+                            opacity: 1;
+                            animation: transIN 1.5s linear;
+                        }
+
+                        .contentHead #imgPort2{
+                            position: relative;
+                            width: 100%;
+                            height: 100%;
+                            float: left;
+                            opacity: 1;
+                            animation: transIN 1s linear;
+                        }
+
+                        @keyframes transIN {
+                            from {
+                                opacity: 50%;
+                            }
+                            to {
+                                opacity: 1;
+                            }
+                        }
+
+                        @media (max-width: 852px) {
+                            .contentHead #imgPort{
+                                width: 33.33%;
+                                height: 33.33%;
+                            }
+
+                            .contentHead #imgPort2{
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+
+                        .contentHead .captions{
+                            position: absolute;
+                            float: left;
+                            width: 100%;
+                            height: auto;
+                            padding: 10px;
+                            top: auto;
+                            background: rgba(0, 0, 0, .5);
+                            
+                            overflow: hidden;
+                            
+                            font-family: "Poppins";
+                            font-weight: bold;
+                            
+                        }
+
+                            .sup {
+                                font-size: 18px;
+                                color: #fa432b;
+                                margin-left: 10px;
+                                text-shadow: 0 0 5px rgba(255, 255, 255, 1);
+                            }
+
+                            .contentHead .captions h1 {
+                                position: relative;
+                                font-size: 30px;
+                                float: left;
+                                top: 0;
+                                color: white;
+                            }
+
+                            @media (max-width: 852px) {
+                                .contentHead .captions h1 {
+                                    font-size: 15px;
+                                }
+
+                                .sup {
+                                    font-size: 11px;
+                                    color: #fa432b;
+                                    margin-left: 6px;
+                                    text-shadow: 0 0 5px rgba(255, 255, 255, 1);
+                                }
+                            }
+
+                            
+
+                    .contentBody {
+                        position: relative;
+                        border-bottom: 2px solid #eeeeee;
+                        padding: 10px 5px 10px 5px;
+                        overflow: hidden;
+
+                        font-family: "Poppins";
+                        
+                    }
+
+                    .contentBody ul {
+                        color: white;
+                        display: grid;
+                        place-items: center;
+
+                        font-family: "Poppins";
+                        font-size: 20px;
+                    }
+
+                    .contentFooter {
+                        position: relative;
+                        padding: 5px;
+                        overflow: hidden;
+                    }
+
+                        .contentFooter h2 {
+                            font-size: 20px;
+                            font-weight:700;
+                            background-image: linear-gradient(to right, rgb(255, 0, 0), rgb(22, 128, 228), rgb(22, 128, 228), rgb(22, 128, 228),rgb(0, 3, 153),rgb(0, 3, 153));
+                            -webkit-background-clip: text;
+                            -moz-background-clip: text;
+                            background-clip: text;
+                            color: transparent;
+                        }
+                        
+
+                        @media (max-width:852px) {
+                            .contentFooter h2 {
+                                font-size: 12px;
+                                font-weight:700;
+                                background-image: linear-gradient(to right, rgb(255, 0, 0), rgb(22, 128, 228), rgb(22, 128, 228), rgb(22, 128, 228),rgb(0, 3, 153),rgb(0, 3, 153));
+                                -webkit-background-clip: text;
+                                -moz-background-clip: text;
+                                background-clip: text;
+                                color: transparent;
+                            }
+                        }
+
+                        @media (max-width:952px) {
+                            .formatTab2 {
+                                display: table;
+                                margin-left: 0;
+                                padding: 0px;
+                                width: auto;
+                                min-width: 900px;
+                            }
+
+                            .mapHolder {
+                                width: 845px;
+                                height: 500px;
+                                border: 0;
+                            }
+                        }
+
+                        @media (max-width:852px) {
+                            .formatTab {
+                                margin-top: -15px;
+                            }
+
+                            .formatTab2 {
+                                display: table;
+                                margin-left: 5px;
+                                padding: 0px;
+                                width: auto;
+                                min-width: 305px;
+                            }
+
+                            .contentHolder2 {
+                                width: 300px;
+                                height: 100%;
+                                padding: 10px;
+                            }
+
+                            .mapHolder {
+                                width: 100%;
+                                height: 500px;
+                                border: 0;
+                            }
+                        }
+        </style>
+    </head>
+    <body>
+        <audio id="bgAudio" loop autoplay>
+            <source src="ASSETS/bgbea.mp3" type="audio/mpeg">
+        </audio>
+        <div class="menuCont">
+            <div class="menuBTNCont">
+                <nav class="menuNavTop">
+                    <input type="checkbox" id="check">
+                    <label for="check" class="checkbtn">
+                        <i class="fas fa-bars"></i>
+                    </label>
+                    <label class="pageMenu">
+                        <img class="menuRootImg" src="ASSETS/LOGO.jpg">
+                        <img class="menuRootImg2" src="ASSETS/LOGO.jpg">
+
+                        <ul class="buttonCont">
+                            <li id="row" class="buttonNav" onclick="showPanel(0, '#c9c9c9')">
+                                <a href="#">
+                                    <i class="fas fa-home"></i>
+                                    <span class="nav-item">HOME</span>
+                                </a>
+                            </li>
+
+                            <li id="row" class="buttonNav" onclick="showPanel(1, '#c9c9c9')">
+                                <a href="#">
+                                    <i class="fas fa-search"></i>
+                                    <span class="nav-item">ABOUT US</span>
+                                </a>
+                            </li>
+
+                            <li id="row" class="buttonNav" onclick="showPanel(2, '#c9c9c9')">
+                                <a href="#">
+                                    <i class="fas fa-list"></i>
+                                    <span class="nav-item">MENU</span>
+                                </a>
+
+                            <li id="row" class="buttonNav" onclick="showPanel(3, '#c9c9c9')">
+                                <a href="#">
+                                    <i class="fas fa-wrench"></i>
+                                    <span class="nav-item">SERVICES</span>
+                                </a>
+                            </li>
+
+                            <li id="row" class="buttonNav" onclick="showPanel(4, '#c9c9c9')">
+                                <a href="#">
+                                    <i class="fas fa-phone"></i>
+                                    <span class="nav-item">CONTACT US</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </label>
+                </nav>
+            </div>
+
+            <div class="Tabs">
+                <div class="pageTabs" id="home">
+                    <div class="formatTab">
+                        <div class="contentHolder">
+                            <div class="contentHead">
+                                <img class="mySlides" src="ASSETS/slide1.jfif">
+                                <img class="mySlides" src="ASSETS/band1.png">
+                                <img class="mySlides" src="ASSETS/band1_1.png">
+                                <img class="mySlides" src="ASSETS/band2.png">
+                                <img class="mySlides" src="ASSETS/band1_2.png">
+                                <img class="mySlides" src="ASSETS/open.png">
+
+                                <div class="captions">
+                                    <h1>LIVE BANDS</h1>
+                                </div>
+                            </div>
+
+                            <div class="contentBody">
+                                <p>
+                                    Be ready for the exciting, breathtaking and electrifying upcoming LIVE BANDS of our restobar! Make sure to visit CARPS RestoBar for you to experience extreme pleasure not only with the bands but also in our food and accompany!
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="contentHolder">
+                            <div class="contentHead">
+                                <img class="mySlides2" src="ASSETS/promo2.jpg">
+                                <img class="mySlides2" src="ASSETS/promo3.jpeg">
+                                <img class="mySlides2" src="ASSETS/promo4.avif">
+                                <img class="mySlides2" src="ASSETS/promo.jpg">
+                                <img class="mySlides2" src="ASSETS/promo5.jpg">
+
+                                <div class="captions">
+                                    <h1>PROMO!</h1>
+                                </div>
+                            </div>
+
+                            <div class="contentBody">
+                                <p>
+                                    Hello Dear Customers! Your happiness and satisfaction is CARPS top priority, so we decided to give you exciting promos to your advantage to receive significant savings, and freebies as well as tasteful servings. What are you waiting for?! Grab the chance!
+                                </p>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+
+                <div class="pageTabs" id="scoops">
+                    <div class="formatTab">
+                        <div class="contentHolder">
+                            <div class="contentHead">
+                                <img src="ASSETS/bgbar.jpg">
+
+                                <div class="captions">
+                                    <h1>ABOUT CARPS RestoBar</h1>
+                                </div>
+                            </div>
+
+                            <div class="contentBody">
+                                <p>
+                                    CARPS is a locally and family-friend owned business that was founded in 2022. We're dedicated to creating wonderful sweet surprises that you'll absolutely love. When you visit our resto bar, 
+                                    you won't believe your eyes with the incredible range of options that are available with us. We specilaze in serving great meals and mixology. We make sure to complete your day and let you experience our foods and beverages that will left an unforgettable taste.
+                                    <br>
+                                    <br>
+                                    This business is fruit of our passion. Without wonderful customers like you, our restobar would never survive, that's why we dont stop envision creative and unique ideas on how to give you pleasure. And we value everyone who gives us their business and support. 
+                                    We're extremely thankful for our loyal customers and their love never falls short.
+                                    <br>
+                                    <br>
+                                    Visit CARPS RestoBar where you'll always be treated like family. Warm smiles and welcome greeting are our number one guarantee. Carryout and delivery options are available. We serve the best for you! 
+                                </p>
+                            </div>
+
+                            <div class="contentFooter">
+                                <h2>Carps RestoBar.corp</h2>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+                
+                <div class="pageTabs" id="theTeam" style="width: 25%;height: 25%;float:left; margin: 15px 15px;">
+                    <div class="formatTab2">
+                        <div id="Parent" class="contentHolder2">
+                            <div class="contentHead">
+                                <img id="imgPort2" src="ASSETS/silog.jpg">
+
+                                <div class="captions">
+                                    <h1>SILOG MEALS</h1>
+                                    <sup class="sup">Best Sellers!</sup>
+                                </div>
+                            </div>
+
+                            <div class="contentBody">
+                                <ul>
+                                    <li>TOCSILOG - P70</li>
+                                    <li>HOTSILOG - P65</li>
+                                    <li>HAMSILOG - P65</li>
+                                    <li>PORKSILOG - P85</li>
+                                    <li>TAPSILOG - P95</li>
+                                    <li>LONGSILOG - P55</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="contentHolder2">
+                            <div class="contentHead">
+                                <img id="imgPort2" src="ASSETS/pulutan.jpg">
+
+                                <div class="captions">
+                                    <h1>FINGER SNACKS / LIQUOR APPETIZERS</h1>
+                                </div>
+                            </div>
+
+                            <div class="contentBody">
+                               <ul>
+                                <li>SISIG - P55</li>
+                                <li>SIZZLING TOFU - P65</li>
+                                <li>FISH FILLET - P75</li>
+                                <li>TAPA - P150</li>
+                               </ul>
+                            </div>
+                        </div>
+
+                        <div class="contentHolder2">
+                            <div class="contentHead">
+                                <img id="imgPort2" src="ASSETS/wings.jpg">
+
+                                <div class="captions">
+                                    <h1>UNLI WINGS</h1>
+                                    <sup class="sup">Best Sellers!</sup>
+                                </div>
+                            </div>
+
+                            <div class="contentBody">
+                                <ul>
+                                    <li>PARMESAN - P299</li>
+                                    <li>SPICY BUFFALO - P310</li>
+                                    <li>HONEY SRIRACHA - P305</li>
+                                    <li>SALTED EGG - P299</li>
+                                    <li>SMOKEY BBQ - P375</li>
+                                    <li>CHEESY YEEZY - P380</li>
+                                   </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="contentHolder2">
+                            <div class="contentHead">
+                                <img id="imgPort2" src="ASSETS/ihaw.jpg">
+
+                                <div class="captions">
+                                    <h1>BARBEQUE ROASTS</h1>
+                                    <sup class="sup">Best Sellers!</sup>
+                                </div>
+                            </div>
+
+                            <div class="contentBody">
+                                <ul>
+                                    <li>TILAPIA - P120</li>
+                                    <li>BANGUS - P165</li>
+                                    <li>PUSIT - P95</li>
+                                    <li>HITO - P135</li>
+                                    <li>LIEMPO - P185</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="contentHolder2">
+                            <div class="contentHead">
+                                <img id="imgPort2" src="ASSETS/extra.jpg">
+
+                                <div class="captions">
+                                    <h1>EXTRAS</h1>
+                                </div>
+                            </div>
+
+                            <div class="contentBody">
+                                <ul>
+                                    <li>RICE - P15</li>
+                                    <li>EGG - P10</li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="contentHolder2">
+                            <div class="contentHead">
+                                <img id="imgPort2" src="ASSETS/liq.jpg">
+
+                                <div class="captions">
+                                    <h1>LIQUORS</h1>
+                                    <sup class="sup">Best Sellers!</sup>
+                                </div>
+                            </div>
+
+                            <div class="contentBody">
+                                <ul>
+                                    <li>JACK AND DANIELS - P455</li>
+                                    <li>RED LABEL - P655</li>
+                                    <li>BLACK LABEL - P555</li>
+                                    <li>JOSE CUERVO - P730</li>
+                                    <li>GIN BULAG + lighter - P70</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="contentHolder2">
+                            <div class="contentHead">
+                                <img id="imgPort2" src="ASSETS/beer.jpg">
+
+                                <div class="captions">
+                                    <h1>LOCAL BEERS</h1>
+                                    <sup class="sup">Best Sellers!</sup>
+                                </div>
+                            </div>
+
+                            <div class="contentBody">
+                                <ul>
+                                    <li>PALEPILSEN - P95</li>
+                                    <li>SAN MIG LIGHT - P120</li>
+                                    <li>APPLE LEMON - P80</li>
+                                    <li>SMIRNOFF MULE - P90</li>
+                                    <li>SMIRNOFF MULE - P75</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="contentHolder2">
+                            <div class="contentHead">
+                                <img id="imgPort2" src="ASSETS/drinks.jpg">
+
+                                <div class="captions">
+                                    <h1>DRINKS</h1>
+                                </div>
+                            </div>
+
+                            <div class="contentBody">
+                                <ul>
+                                    <li>BOTTLED WATER - P15</li>
+                                    <li>COKE IN CAN - P30</li>
+                                    <li>COKE 3L - P130</li>
+                                    <li>KOMBUCHA - P120</li>
+                                    <li>ORANGE JUICE - P35</li>
+                                   </ul>
+                            </div>
+                        </div>
+                    </div>     
+                </div>
+
+                <div class="pageTabs" id="home">
+                    <div class="formatTab">
+                        <div class="contentHolder" style="height: 100%;">
+                            <div class="contentHead">
+                                <!--VIDEO-->
+                                <video width="100%" loop="true" autoplay muted>
+                                    <source src="ASSETS/video2.mp4" type="video/mp4" />
+                                </video>
+
+                                <div class="captions">
+                                    <h1>PROMO!</h1>
+                                </div>
+                            </div>
+
+                            <div class="contentBody">
+                                <p>
+                                    Here at CARPS. We make sure that you get a luxurious service that any customer deserves. Providing the best resto service only for you, at an affordable and easy access place near your city.
+                                </p><br>
+
+                                <p>
+                                    Our Main Goal is to satisfy our customers while passionately working in the food industry. So don't hesitate to criticize Us!
+                                </p><br>
+
+                                <p>
+                                    Here at CARPS, you are our PRIORITY!
+                                </p>
+                            </div>
+                            
+                            <div class="contentFooter">
+                                <h2>Carps RestoBar.corp</h2>
+                            </div>
+                        </div>
+
+                        <div class="contentHolder" style="height: 100%;">
+                            <div class="contentHead">
+                                <!--VIDEO-->
+                                <div id="map">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3862.4419599231755!2d121.23304777521732!3d14.51669417912522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c120ba63a7ab%3A0x71c25c4105bf1c5b!2sUniversity%20of%20Rizal%20System%20-%20Morong%20Campus!5e0!3m2!1sen!2sph!4v1683601290892!5m2!1sen!2sph" class="mapHolder"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                                <div class="captions">
+                                    
+                                </div>
+                            </div>
+
+                            <div class="contentBody">
+                                <p style="font-size: 20px; font-weight: bold;font-family: 'Poppins';text-align: center;color: #e21485; ">WHERE ARE WE LOCATED?</p>
+                            </div>
+                            
+                            <div class="contentFooter">
+                                <h2>Carps RestoBar.corp</h2>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+
+                <div class="pageTabs" id="contactUs" style="width: 25%;height: 25%;float:left; margin: 15px 15px;">
+                    <div class="formatTab2">
+                        <div class="contentHolder2">
+                            <div class="contentHead">
+                                <img id="imgPort2" src="ASSETS/josh1.jpg">
+
+                                <div class="captions">
+                                    <h1>FACEBOOK - Joshua Castillo</h1>
+                                </div>
+                            </div>
+
+                            <div class="contentBody">
+                                <a href="https://www.facebook.com/vjoshm" target="_blank" class="linkCss">
+                                    - vjoshm
+                                </a>
+                            </div>
+
+                            <div class="contentFooter">
+                                <h2>Carps RestoBar.corp</h2>
+                            </div>
+                        </div>
+
+                        <div class="contentHolder2">
+                            <div class="contentHead">
+                                <img id="imgPort2" src="ASSETS/ica1.jpg">
+
+                                <div class="captions">
+                                    <h1>FACEBOOK - Isle Vibandor</h1>
+                                </div>
+                            </div>
+
+                            <div class="contentBody">
+                                <a href="https://www.facebook.com/Icavibandor" target="_blank" class="linkCss">
+                                    - Icavibandor
+                                </a>
+                            </div>
+
+                            <div class="contentFooter">
+                                <h2>Carps RestoBar.corp</h2>
+                            </div>
+                        </div>
+
+                        <div class="contentHolder2">
+                            <div class="contentHead">
+                                <img id="imgPort2" src="ASSETS/ash1.jpg">
+
+                                <div class="captions">
+                                    <h1>FACEBOOK - Ashly Galang</h1>
+                                </div>
+                            </div>
+
+                            <div class="contentBody">
+                                <a href="https://www.facebook.com/aash.martinez" target="_blank" class="linkCss">
+                                    - aash.martinez
+                                </a>
+                            </div>
+
+                            <div class="contentFooter">
+                                <h2>Carps RestoBar.corp</h2>
+                            </div>
+                        </div>
+
+                        <div class="contentHolder2">
+                            <div class="contentHead">
+                                <img id="imgPort2" src="ASSETS/Vina1.jpg">
+
+                                <div class="captions">
+                                    <h1>FACEBOOK - Vina Jane Duran</h1>
+                                </div>
+                            </div>
+
+                            <div class="contentBody">
+                                <a href="https://www.facebook.com/sizzyjaneduran" target="_blank" class="linkCss">
+                                    - sizzyjaneduran
+                                </a>
+                            </div>
+
+                            <div class="contentFooter">
+                                <h2>Carps RestoBar.corp</h2>
+                            </div>
+                        </div>
+
+                        <div class="contentHolder2">
+                            <div class="contentHead">
+                                <img id="imgPort2" src="ASSETS/Nat1.jpg">
+
+                                <div class="captions">
+                                    <h1>FACEBOOK - Natasha Faye Dayata</h1>
+                                </div>
+                            </div>
+
+                            <div class="contentBody">
+                                <a href="https://www.facebook.com/natashafaye.dayata" target="_blank" class="linkCss">
+                                    - natashafaye.dayata
+                                </a>
+                            </div>
+
+                            <div class="contentFooter">
+                                <h2>Carps RestoBar.corp</h2>
+                            </div>
+                        </div>
+
+                        <div class="contentHolder2">
+                            <div class="contentHead">
+                                <div class="logoHolder">
+                                    <a href="https://www.facebook.com" target="_blank" class="linkCss">
+                                        <img class="logoSM" src="ASSETS/fb1.png">
+                                    </a>
+    
+                                    <a href="https://www.twitter.com" target="_blank" class="linkCss">
+                                        <img class="logoSM" src="ASSETS/tw1.png">
+                                    </a>
+    
+                                    <a href="https://www.instagram.com" target="_blank" class="linkCss">
+                                        <img class="logoSM" src="ASSETS/ig1.png">
+                                    </a>
+    
+                                    <a href="https://www.Whatsapp.com" target="_blank" class="linkCss">
+                                        <img class="logoSM" src="ASSETS/wa1.png">
+                                    </a>
+                                </div>
+
+                                <div class="captions">
+                                    <h1>FOLLOW US on SOCIAL MEDIA!</h1>
+                                </div>
+                            </div>
+
+                            <div class="contentBody">
+                                <p style="font-weight: bold;font-family: 'Poppins';font-size: 13px;color: #e21485;text-align: center;">
+                                    STAY TUNED!
+                                </p>
+                            </div>
+
+                            <div class="contentFooter">
+                                <h2>Carps RestoBar.corp</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script id="Photo Carousel">
+            var myIndex = 0;
+            carousel();
+
+            function carousel() {
+                var i;
+                var x = document.getElementsByClassName("mySlides");
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                myIndex++;
+                if (myIndex > x.length) {myIndex = 1}    
+                x[myIndex-1].style.display = "block";
+                setTimeout(carousel, 4000); // Change image every 2 seconds
+            }
+
+            var myIndex = 0;
+            carouselTwo();
+
+            function carouselTwo() {
+                var i;
+                var x = document.getElementsByClassName("mySlides2");
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";  
+                }
+                myIndex++;
+                if (myIndex > x.length) {myIndex = 1}    
+                x[myIndex-1].style.display = "block";  
+                setTimeout(carouselTwo, 3000); // Change image every 2 seconds
+            }
+        </script>
+        <script>
+            var tabButtons = document.querySelectorAll(".menuCont .menuBTNCont .buttonNav")
+            var tabPanels = document.querySelectorAll(".Tabs .pageTabs")
+
+            function showPanel(panelIndex, colorCode) {
+
+                
+                tabButtons.forEach(function(node) {
+                    node.style.backgroundColor="";
+                    node.style.color="";
+                });
+                tabButtons[panelIndex].style.backgroundColor=colorCode;
+                tabButtons[panelIndex].style.color="none";
+                tabButtons[panelIndex].style.transition = 'all .5s ease';
+                tabPanels.forEach(function(node) {
+                    node.style.display="none";
+                });
+                tabPanels[panelIndex].style.display="block";
+            }
+
+            showPanel(0, "#c9c9c9")
+        </script>
+        <script>
+            function MouseSound() {
+                var fileUrl = "ASSETS/click1.mp3";
+                var audio = new Audio(fileUrl);
+                audio.play();
+                audio.volume = 0.05;
+            }
+
+            window.addEventListener('click', MouseSound , false);
+        </script>
+        <script>
+            var audio = document.getElementById("bgAudio");
+            audio.volume = 0.05;
+          </script>
+        <!--
+            <script src="WAD-group-javascript(MAIN).js"></script>
+        -->
+    </body>
+</html>
