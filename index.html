@@ -98,6 +98,71 @@
                     }
                 }
 
+                .dateTime {
+                    position: fixed;
+                    float: left;
+                    top: 600px;
+                    color: #fff;
+                    background-color: #10101E;
+                    font-family: "Segoe UI", sans-serif;
+                    width: 340px;
+                    padding: 15px 10px;
+                    border: 3px solid #e21485;
+                    border-radius: 5px;
+
+                    transform: scale(.6);
+                    margin-left: -50px;
+                    margin-top: 85px;
+                }
+
+                @media (max-width:852px){
+                    .dateTime {
+                        position: fixed;
+                        float: left;
+                        top: -95px;
+                        left: 60px;
+                        transform: scale(.3);
+                    }
+                }
+
+                .dateTime:hover {
+                    background: #e21485;
+                    box-shadow: 0 0 30px #e21485;
+                }
+
+                .date {
+                    font-size: 18px;
+                    font-weight: 600;
+                    text-align: center;
+                    letter-spacing: 3px;
+
+                }
+
+                .time {
+                    font-size: 40px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .time span:not(:last-child) {
+                    position: relative;
+                    margin: 0 6px;
+                    font-weight: 600;
+                    text-align: center;
+                    letter-spacing: 3px;
+                }
+
+                .time span:last-child {
+                    background-color: #4f0558;
+                    font-size: 30px;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    margin-top: 10px;
+                    padding: 0 5px;
+                    border-radius: 3px;
+                }
+
                 .linkCss {
                     color: lightblue;
                 }
@@ -564,7 +629,7 @@
                         }
         </style>
     </head>
-    <body>
+    <body onload="initClock()">
         <audio id="bgAudio" loop autoplay>
             <source src="ASSETS/bgbea.mp3" type="audio/mpeg">
         </audio>
@@ -578,6 +643,25 @@
                     <label class="pageMenu">
                         <img class="menuRootImg" src="ASSETS/LOGO.jpg">
                         <img class="menuRootImg2" src="ASSETS/LOGO.jpg">
+
+                        <div class="dateTime">
+                            <div class="date">
+                                <span id="dayname">Day</span>
+                                <span id="month">Month</span>
+                                <span id="daynum">00</span>
+                                <span>,</span>
+                                <span id="year">Year</span>
+                            </div>
+
+                            <div class="time">
+                                <span id="hour">00</span>
+                                <span>:</span>
+                                <span id="minutes">00</span>
+                                <span>:</span>
+                                <span id="seconds">00</span>
+                                <span id="period">AM</span>
+                            </div>
+                        </div>
 
                         <ul class="buttonCont">
                             <li id="row" class="buttonNav" onclick="showPanel(0, '#c9c9c9')">
@@ -678,7 +762,7 @@
                             <div class="contentBody">
                                 <p>
                                     CARPS is a locally and family-friend owned business that was founded in 2022. We're dedicated to creating wonderful sweet surprises that you'll absolutely love. When you visit our resto bar, 
-                                    you won't believe your eyes with the incredible range of options that are available with us. We specilaze in serving great meals and mixology. We make sure to complete your day and let you experience our foods and beverages that will left an unforgettable taste.
+                                    you won't believe your eyes with the incredible range of options that are available with us. We specialize in serving great meals and mixology. We make sure to complete your day and let you experience our foods and beverages that will left an unforgettable taste.
                                     <br>
                                     <br>
                                     This business is fruit of our passion. Without wonderful customers like you, our restobar would never survive, that's why we dont stop envision creative and unique ideas on how to give you pleasure. And we value everyone who gives us their business and support. 
@@ -1119,15 +1203,56 @@
                 var fileUrl = "ASSETS/click1.mp3";
                 var audio = new Audio(fileUrl);
                 audio.play();
-                audio.volume = 0.05;
+                audio.volume = 0.1;
             }
 
             window.addEventListener('click', MouseSound , false);
         </script>
         <script>
             var audio = document.getElementById("bgAudio");
-            audio.volume = 0.05;
-          </script>
+            audio.volume = 0.4;
+        </script>
+
+        <script>
+            function updateClock(){
+                var now = new Date();
+                var dname = now.getDay(),
+                    mo = now.getMonth(),
+                    dnum = now.getDate(),
+                    yr = now.getFullYear(),
+                    hou = now.getHours(),
+                    min = now.getMinutes(),
+                    sec = now.getSeconds(),
+                    pe = "AM";
+
+                    if(hou == 0){
+                        hou = 12;
+                    }
+                    if(hou > 12) {
+                        hou = hou - 12;
+                        pe = "PM";
+                    }
+
+                    Number.prototype.pad = function(digits){
+                        for(var n = this.toString(); n.length < digits; n = 0 + n);
+                        return n;
+                    }
+
+                    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                    var week = ["Sunday", "Monday" ,"Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                    var ids = ["dayname", "month", "daynum", "year", "hour", "minutes", "seconds", "period"];
+                    var values = [week[dname], months[mo], dnum.pad(2), yr, hou.pad(2), min.pad(2), sec.pad(2), pe]
+
+                    for(var i = 0; i < ids.length; i++){
+                        document.getElementById(ids[i]).firstChild.nodeValue = values[i];
+                    }
+            }
+
+            function initClock(){
+                updateClock();
+                window.setInterval("updateClock()", 1);
+            }
+        </script>
         <!--
             <script src="WAD-group-javascript(MAIN).js"></script>
         -->
